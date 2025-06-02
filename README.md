@@ -64,21 +64,22 @@ Un pulsador simple (push button) es utilizado para alternar entre distintos modo
 
 
 
-| Color del cable | Pin en Arduino | Conectado a                      | Función                                      |
+| Color del cable  | Pin en Arduino | Conectado a                      | Función                                      |
 |------------------|----------------|----------------------------------|----------------------------------------------|
 |    Rojo          | 5V             | DHT22, Pulsador, ULN2003, MQ-2, Pantalla LCD I2C, RTC DS1307 | Alimentación (VCC)                          |
 |    Negro         | GND            | Todos los módulos (común)        | Tierra (GND)                                 |
-|    Blanco        | D5             | DHT22                            | Señal de temperatura/humedad                 |
-|    Morado        | D4             | Pulsador                         | Entrada de botón                             |
-|    Rojo (otro)   | D7             | LED rojo (con resistencia)       | Control de encendido LED                     |
-|    Amarillo      | D8             | ULN2003 IN1                      | Motor paso a paso                            |
-|    Amarillo      | D9             | ULN2003 IN2                      | Motor paso a paso                            |
-|    Amarillo      | D10            | ULN2003 IN3                      | Motor paso a paso                            |
-|    Amarillo      | D11            | ULN2003 IN4                      | Motor paso a paso                            |
-|    Naranja       | D6             | Servo motor                      | PWM de control                               |
-|    Marrón        | A0             | MQ-2                             | Lectura analógica del gas                    |
-|    Azul claro    | A4 (SDA)       | RTC DS1307, Pantalla LCD I2C     | Comunicación I2C – datos                     |
-|    Verde         | A5 (SCL)       | RTC DS1307, Pantalla LCD I2C     | Comunicación I2C – reloj                     |
+|    Blanco        | 12             | DHT22                            | Señal de temperatura/humedad                 |
+|    Amarillo      | 13             | Pulsador                         | Entrada de botón                             |
+|    Naranja       | A0             | LDR                              | Sensor LDR                                   |
+|    Gris          | 4              | FIT0845                          | Calentador                                   |
+|    Verde claro   | 8              | Motor A+                         | Motor paso a paso                            |
+|    Rosa          | 9              | Motor A-                         | Motor paso a paso                            |
+|    Morado        | 10             | Motor B+                         | Motor paso a paso                            |
+|    Marrón        | 11             | Motor B-                         | Motor paso a paso                            |
+|    Verde         | 3              | Servo motor                      | PWM de control                               |
+|    Violeta       | 7              | MQ-2                             | Lectura analógica del gas                    |
+|    Verde         | A4 (SDA)       | RTC DS1307, Pantalla LCD I2C     | Comunicación I2C – datos                     |
+|    Azul          | A5 (SCL)       | RTC DS1307, Pantalla LCD I2C     | Comunicación I2C – reloj                     |
 
 
 ---
