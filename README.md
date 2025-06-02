@@ -2,6 +2,8 @@
 
 Este proyecto implementa el control de una boya climática inteligente equipada con sensores ambientales, actuadores de control térmico y un sistema de visualización. La estación está diseñada para operar en entornos marinos y supervisar condiciones atmosféricas y ambientales de forma autónoma.
 
+Este proyecto ha sido simulado empleando WOKWI. El enlace a dicha simulación es el siguiente: [https://wokwi.com/projects/430761981379479553](#)
+
 ---
 
 ## Descripción General
