@@ -1,4 +1,6 @@
-//boya_climatica.ino
+// boya_climatica.ino
+// Autor: Alberto Río Martínez
+
 #include "boya_climatica.h"
 
 void setup() {
