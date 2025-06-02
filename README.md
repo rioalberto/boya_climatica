@@ -241,6 +241,7 @@ Aquí se definen los pines para los sensores y actuadores:
   - CALENTADORPIN: para activar calentador.
   - SERVOPIN: servo que abre una compuerta para ventilar.
   - Pines del motor paso a paso (MOTORPIN1 a MOTORPIN4).
+
 También se definen:
   - Constantes para el sensor de luz (LDR).
   - Umbrales de temperatura.
