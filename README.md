@@ -384,7 +384,6 @@ Cada una muestra distinta información en función del modo actual (fecha, lux, 
 
 ## Posibles Mejoras
 
-- Añadir datalogging a SD o comunicación LoRa/WiFi
 - Usar sensores analógicos con calibración real (MQ-2 en modo analógico)
 - Integrar energía solar para operación prolongada
 - Medir temperatura del agua marina directamente
