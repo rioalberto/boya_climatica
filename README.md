@@ -205,7 +205,161 @@ El código está organizado en varias funciones que separan claramente:
 - La visualización en pantalla
 - El manejo de eventos como el pulsador
 
-El temporizador interno se implementa mediante `millis()` para simular una lectura cíclica cada 1 segundo (`interval = 1000 ms`).
+Este código está diseñado para controlar una boya inteligente de monitoreo ambiental, integrando sensores de temperatura, humedad, gas, luz, y actuadores como un servomotor, una turbina y un calentador, todo gestionado desde un microcontrolador (tipo Arduino). A continuación, te explico detalladamente cada parte del código:
+
+### 1. Inclusión de librerías
+
+```ino
+#include <LiquidCrystal_I2C.h> 
+#include <DHT.h>
+#include "RTClib.h"
+#include <Servo.h>
+#include <Stepper.h>
+```
+Estas librerías permiten usar:
+  - Pantalla LCD con interfaz I2C.
+  - Sensor de temperatura y humedad DHT22.
+  - Reloj de tiempo real (RTC).
+  - Servo (para abrir compuerta).
+  - Motor paso a paso (turbina de ventilación).
+
+### 2. Definición de pines y constantes
+
+```ino
+#define LDRPIN A0
+#define DHTPIN 12
+#define MQ2PIN 7
+...
+```
+Aquí se definen los pines para los sensores y actuadores:
+  - LDRPIN: resistencia fotosensible (luz).
+  - DHTPIN: sensor DHT22.
+  - MQ2PIN: sensor de gases.
+  - CALENTADORPIN: para activar calentador.
+  - SERVOPIN: servo que abre una compuerta para ventilar.
+  - Pines del motor paso a paso (MOTORPIN1 a MOTORPIN4).
+También se definen:
+  - Constantes para el sensor de luz (LDR).
+  - Umbrales de temperatura.
+  - Velocidades de calentamiento/enfriamiento simuladas.
+
+### 3. Variables globales
+
+Se almacenan datos actuales y anteriores del LCD, modo de operación, medidas, etc. Por ejemplo:
+```ino
+float temperature, humidity, lux;
+bool acquisition = false;
+uint8_t mode = 0;
+...
+```
+
+### 4. Objetos
+
+Se instancian los objetos de cada sensor/actuador:
+```ino
+DHT dht(DHTPIN, DHTTYPE);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+RTC_DS1307 rtc;
+Servo compuerta;
+Stepper turbina(stepsPerRevolution, MOTORPIN1, MOTORPIN2, MOTORPIN3, MOTORPIN4);
+```
+
+### 5. setup() – Inicialización
+
+```ino
+void setup() {
+  pinMode(LDRPIN, INPUT);
+  ...
+  compuerta.write(90); // Compuerta cerrada
+  ...
+  lcd.init(); lcd.backlight();
+}
+```
+
+- Se configuran los pines.
+- Se inicializan sensores y actuadores.
+- El servo inicia en posición cerrada.
+- Se establece la velocidad del motor.
+
+### 6. loop() – Ciclo principal
+
+#### a. Temporizador:
+
+```ino
+acquisition_int();
+if (acquisition) { ... }
+```
+Cada 1 segundo se activa la bandera acquisition.
+
+#### b. Sensores y control:
+
+```ino
+read_lux(); read_rtc(); read_mq2(); temp_control();
+```
+Se leen valores de sensores y se ejecuta control de temperatura.
+
+#### c. Modo de visualización:
+
+```ino
+switch (mode) {
+  case 0: display_date_hour(); break;
+  ...
+}
+```
+El usuario cambia el contenido del LCD con un botón.
+
+#### d. Motor:
+
+```ino
+if (motor_flag){
+  turbina.step(stepsPerRevolution);
+}
+```
+Activa la turbina cuando el sistema necesita enfriar.
+
+### 7. acquisition_int()
+
+```ino
+if (currentMillis - previousMillis >= interval) {
+  acquisition = true;
+}
+```
+Simula una interrupción temporizada usando millis() para ejecutar lectura cada segundo.
+
+### 8. Funciones de sensores
+
+- read_dht(): lee humedad y temperatura.
+
+- read_lux(): convierte la lectura analógica del LDR a lux.
+
+- read_rtc(): obtiene fecha y hora del RTC.
+
+- read_mq2(): lee el valor digital del sensor MQ2.
+
+### 9. temp_control() – Control térmico
+
+```ino
+if (temperature > limiteSuperior) {
+  compuerta.write(0); // abrir
+  motor_flag = true;
+  ...
+} else if (temperature < limiteInferior) {
+  digitalWrite(CALENTADORPIN, HIGH);
+  ...
+}
+```
+Controla si se debe calentar (enciende calentador) o enfriar (abre compuerta + turbina). La temperatura se ajusta simulando el cambio térmico.
+
+### 10. Display en LCD (clear_lcd + funciones display_*)
+
+```ino
+display_date_hour();
+display_lux();
+display_dht22();
+display_MQ2();
+display_temp_ctl();
+```
+Cada una muestra distinta información en función del modo actual (fecha, lux, Tº/Hº, calidad de aire...). La función clear_lcd evita borrar la pantalla si los valores no han cambiado.
 
 ---
 
