@@ -2,7 +2,7 @@
 
 Este proyecto implementa el control de una boya climática inteligente equipada con sensores ambientales, actuadores de control térmico y un sistema de visualización. La estación está diseñada para operar en entornos marinos y supervisar condiciones atmosféricas y ambientales de forma autónoma.
 
-Este proyecto ha sido simulado empleando WOKWI. El enlace a dicha simulación es el siguiente: [https://wokwi.com/projects/430761981379479553](#)
+Este proyecto ha sido simulado empleando WOKWI. Este es el [enlace](https://wokwi.com/projects/430761981379479553) a dicha simulación.
 
 ---
 
@@ -40,7 +40,7 @@ Sensor de gases que destaca por su alta sensibilidad, bajo coste, larga vida út
 Módulo RTC (Real Time Clock) económico que proporciona fecha y hora incluso en caso de que el Arduino se apague o reinicie, ya que cuenta con una batería de respaldo. Resulta fundamental para registrar eventos o realizar medidas temporizadas de manera autónoma y dispone de una interfaz I2C, lo que facilita la comunicación.
 
 ### - FIT0845 – Calentador PTC 5V 8W
-Calentador cerámico tipo PTC (Coeficiente de Temperatura Positivo). Este tipo de calentadores tiene la ventaja de autorregular su temperatura, ya que su resistencia eléctrica aumenta conforme se calienta, limitando la corriente que consume. Esto lo hace más seguro y eficiente que resistencias tradicionales. Tiene una tensión nominal de 5 VDC, una potencia de 8 W y una temperatura de operación típica entre 50 °C y 70 °C. [https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6648/FIT0845.pdf](#)
+Calentador cerámico tipo PTC (Coeficiente de Temperatura Positivo). Este tipo de calentadores tiene la ventaja de autorregular su temperatura, ya que su resistencia eléctrica aumenta conforme se calienta, limitando la corriente que consume. Esto lo hace más seguro y eficiente que resistencias tradicionales. Tiene una tensión nominal de 5 VDC, una potencia de 8 W y una temperatura de operación típica entre 50 °C y 70 °C. [Datasheet de FIT0845](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6648/FIT0845.pdf)
 
 ### - Servo 5V – Para apertura de compuerta
 Un servo motor es un actuador rotativo que permite controlar de manera precisa el ángulo de giro. En este caso se usa un servo de 5 V (como el SG90 o similar) para abrir una compuerta por la que puede entrar agua marina para refrigerar la boya.Tiene una tensión de operación de 5 VDC, un ángulo típico de operación de 0° a 180° y su control se lleva a cabo mediante señal PWM.
