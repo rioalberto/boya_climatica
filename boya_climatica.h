@@ -1,4 +1,5 @@
-//boya_climatica.h
+// boya_climatica.h
+// Autor: Alberto Río Martínez
 
 #include <LiquidCrystal_I2C.h> // Librería para usar Display
 #include <DHT.h> // Librería para usar DHT22
