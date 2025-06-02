@@ -64,6 +64,7 @@ Un pulsador simple (push button) es utilizado para alternar entre distintos modo
 
 ## Esquema de Conexiones
 
+![schematic](https://github.com/user-attachments/assets/0f72f2f1-0136-4ee6-ba2d-19acd611efa6)
 
 
 | Color del cable  | Pin en Arduino | Conectado a                      | Función                                      |
@@ -394,13 +395,7 @@ Cada una muestra distinta información en función del modo actual (fecha, lux, 
 
 ## Vídeos de Pruebas de Funcionamiento
 
-Puedes ver vídeos demostrativos del sistema en acción en los siguientes enlaces:
-
-- [Video 1 – Funcionamiento general y control térmico](#)  
-- [Video 2 – Ciclo completo de lectura y visualización](#)  
-- [Video 3 – Simulación de ambiente contaminado y respuesta del sistema](#)
-
-> *Los vídeos ilustran el sistema en entorno controlado con simulación de variables físicas.*
+Puedes encontrar el vídeo demostrativo del sistema en acción en el repositorio principal del proyecto bajo el nombre de "Video funcionamiento_pr_2".
 
 ---
 
